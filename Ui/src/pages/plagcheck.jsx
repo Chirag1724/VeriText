@@ -29,7 +29,7 @@ function App() {
         setActiveTab("overview");
 
         try {
-            const response = await fetch("http://localhost:5000/check-plagiarism", {
+            const response = await fetch("https://plagiarism-backend-sye8.onrender.com/check-plagiarism", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
