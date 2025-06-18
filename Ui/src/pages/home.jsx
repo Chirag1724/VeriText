@@ -525,8 +525,9 @@ const VeriTextHomepage = () => {
               {
                 icon: FileText,
                 title: "Universal Format Support",
-                description: "Seamlessly works with PDF, DOC, DOCX, TXT, and more file formats with intelligent text extraction.",
-                color: "from-blue-400 to-indigo-500"
+                description: "Seamlessly works with PDF, DOC, DOCX, and more file formats with intelligent text extraction.",
+                color: "from-blue-400 to-indigo-500",
+                comingSoon: true
               },
               {
                 icon: Lock,
@@ -549,7 +550,12 @@ const VeriTextHomepage = () => {
             ].map((feature, index) => (
               <div key={index} className={`${
                 isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100'
-              } p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group border`}>
+              } p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group border relative`}>
+                {feature.comingSoon && (
+                  <div className="absolute -top-2 -right-2 bg-gradient-to-r from-orange-400 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">
+                    Coming Soon
+                  </div>
+                )}
                 <div className={`bg-gradient-to-r ${feature.color} p-3 sm:p-4 rounded-xl w-fit mb-4 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
                   <feature.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                 </div>
