@@ -143,7 +143,7 @@ const VeriTextHomepage = () => {
             </div>
 
             {/* Mobile Menu Controls */}
-            <div className="flex items-center space-x-3 lg:hidden">
+            <div className="flex items-center space-x-2 lg:hidden">
               <button
                 onClick={toggleTheme}
                 className={`p-2 rounded-lg transition-all duration-200 ${
@@ -152,7 +152,7 @@ const VeriTextHomepage = () => {
                     : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
                 }`}
               >
-                {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </button>
               <button
                 onClick={toggleMobileMenu}
@@ -162,49 +162,75 @@ const VeriTextHomepage = () => {
                     : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
                 }`}
               >
-                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
             </div>
           </nav>
 
           {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className={`lg:hidden mt-4 py-4 border-t ${
+          <div className={`lg:hidden transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen 
+              ? 'max-h-96 opacity-100 visible' 
+              : 'max-h-0 opacity-0 invisible'
+          } overflow-hidden`}>
+            <div className={`pt-4 pb-6 border-t mt-4 ${
               isDarkMode ? 'border-gray-700' : 'border-gray-200'
             }`}>
               <div className="flex flex-col space-y-4">
-                <button onClick={() => smoothScroll('features')} className={`text-left ${
-                  isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'
-                } transition-colors font-medium`}>
+                <button 
+                  onClick={() => smoothScroll('features')} 
+                  className={`text-left py-2 px-3 rounded-lg transition-all duration-200 ${
+                    isDarkMode 
+                      ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' 
+                      : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                  } font-medium`}
+                >
                   Features
                 </button>
-                <button onClick={() => smoothScroll('how-it-works')} className={`text-left ${
-                  isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'
-                } transition-colors font-medium`}>
+                <button 
+                  onClick={() => smoothScroll('how-it-works')} 
+                  className={`text-left py-2 px-3 rounded-lg transition-all duration-200 ${
+                    isDarkMode 
+                      ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' 
+                      : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                  } font-medium`}
+                >
                   How It Works
                 </button>
-                <button onClick={() => smoothScroll('about')} className={`text-left ${
-                  isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'
-                } transition-colors font-medium`}>
+                <button 
+                  onClick={() => smoothScroll('about')} 
+                  className={`text-left py-2 px-3 rounded-lg transition-all duration-200 ${
+                    isDarkMode 
+                      ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' 
+                      : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                  } font-medium`}
+                >
                   About
                 </button>
-                <button onClick={() => smoothScroll('contact')} className={`text-left ${
-                  isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'
-                } transition-colors font-medium`}>
+                <button 
+                  onClick={() => smoothScroll('contact')} 
+                  className={`text-left py-2 px-3 rounded-lg transition-all duration-200 ${
+                    isDarkMode 
+                      ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' 
+                      : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                  } font-medium`}
+                >
                   Contact
                 </button>
-                <button
-                  onClick={() => {
-                    redirectToCheckPage();
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium text-left"
-                >
-                  Get Started
-                </button>
+                <div className="pt-2">
+                  <button
+                    onClick={() => {
+                      redirectToCheckPage();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all duration-200 font-medium text-center"
+                  >
+                    Get Started
+                  </button>
+                </div>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </header>
 
